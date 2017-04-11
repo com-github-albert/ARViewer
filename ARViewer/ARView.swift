@@ -16,9 +16,11 @@ public enum ARControlMode: Int {
 }
 
 public class ARView: SCNView {
+    
     public var controlMode: ARControlMode! {
         didSet {
             switchControlMode(to: controlMode)
+            resetCameraAngles()
         }
     }
     
@@ -39,11 +41,8 @@ public class ARView: SCNView {
             panoramaNode.geometry = sphere
         }
     }
-
-    fileprivate let panoramaNode = SCNNode()
-    fileprivate let cameraNode = SCNNode()
-    fileprivate var prevLocation = CGPoint.zero
-    fileprivate var motionManager = CMMotionManager()
+    
+    public var panSpeed: (x: Float, y: Float) = (x: 0.005, y: 0.005)
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -58,8 +57,8 @@ public class ARView: SCNView {
     }
     
     deinit {
-        if (motionManager.isGyroActive) {
-            motionManager.stopGyroUpdates()
+        if motionManager.isDeviceMotionActive {
+            motionManager.stopDeviceMotionUpdates()
         }
     }
     
@@ -81,10 +80,21 @@ public class ARView: SCNView {
         self.scene = scene
         backgroundColor = UIColor.black
     }
+    
+    fileprivate let panoramaNode = SCNNode()
+    fileprivate let cameraNode = SCNNode()
+    fileprivate var prevLocation = CGPoint.zero
+    fileprivate var motionManager = CMMotionManager()
 }
 
 extension ARView {
+    fileprivate func resetCameraAngles() {
+        cameraNode.eulerAngles = SCNVector3Make(0, 0, 0)
+    }
+    
     public func switchControlMode(to mode: ARControlMode) {
+        gestureRecognizers?.removeAll()
+        
         switch mode {
         case .touch:
             let panGestureRec = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_ :)))
@@ -101,7 +111,7 @@ extension ARView {
                     self.motionManager.stopGyroUpdates()
                     return
                 }
-                self.cameraNode.orientation = motionData.gaze(atOrientation: UIApplication.shared.statusBarOrientation)
+                self.cameraNode.orientation = motionData.orientation()
             })
         }
     }
@@ -112,8 +122,8 @@ extension ARView {
         } else if (gesture.state == .changed) {
             let location = gesture.translation(in: self)
             let orientation = cameraNode.eulerAngles
-            let newOrientation = SCNVector3Make(orientation.x + Float(location.y - prevLocation.y) * 0.005,
-                                                orientation.y + Float(location.x - prevLocation.x) * 0.005,
+            let newOrientation = SCNVector3Make(orientation.x + Float(location.y - prevLocation.y) * panSpeed.x,
+                                                orientation.y + Float(location.x - prevLocation.x) * panSpeed.y,
                                                 orientation.z)
             
             cameraNode.eulerAngles = newOrientation

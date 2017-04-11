@@ -15,7 +15,7 @@ public class ARViewController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-        arView.panoramaTexture = UIImage(named: "steppe")
+        arView.panoramaTexture = UIImage(named: "spherical")
         arView.controlMode = .motion
     }
     
