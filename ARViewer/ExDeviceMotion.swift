@@ -10,7 +10,7 @@ import SceneKit
 import CoreMotion
 
 extension CMDeviceMotion {
-    func orientation() -> SCNVector4 {
+    func gaze() -> SCNVector4 {
         let attitude = self.attitude.quaternion
         let aq = GLKQuaternionMake(Float(attitude.x), Float(attitude.y), Float(attitude.z), Float(attitude.w))
         

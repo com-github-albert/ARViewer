@@ -9,6 +9,8 @@
 import UIKit
 import SceneKit
 import CoreMotion
+import AVFoundation
+import SpriteKit
 
 public enum ARControlMode: Int {
     case motion
@@ -26,15 +28,47 @@ public class ARView: SCNView {
     
     public var panoramaTexture: UIImage? {
         didSet {
+            guard let texture = panoramaTexture else { return }
+            
             let material = SCNMaterial()
-            material.diffuse.contents = panoramaTexture
+            material.diffuse.contents = texture
             material.diffuse.mipFilter = .nearest
             material.diffuse.magnificationFilter = .nearest
             material.diffuse.contentsTransform = SCNMatrix4MakeScale(-1, 1, 1)
             material.diffuse.wrapS = .repeat
             material.cullMode = .front
             
-            let sphere = SCNSphere(radius: 50)
+            let sphere = SCNSphere()
+            sphere.radius = 50
+            sphere.segmentCount = 300
+            sphere.firstMaterial = material
+            
+            panoramaNode.geometry = sphere
+        }
+    }
+    
+    public var panoramaVideoPlayer: AVPlayer? {
+        didSet {
+            guard let videoPlayer = panoramaVideoPlayer else { return }
+
+            let videoSize = CGSize(width: 1920, height: 960)
+            
+            let videoNode = SKVideoNode(avPlayer: videoPlayer)
+            videoNode.position = videoSize.midPoint
+            videoNode.xScale = -1
+            videoNode.yScale = -1
+            videoNode.size = videoSize
+            
+            let videoScene = SKScene(size: videoSize)
+            videoScene.scaleMode = .aspectFit
+            videoScene.addChild(videoNode)
+            
+            let material = SCNMaterial()
+            material.diffuse.contents = videoScene
+            material.cullMode = .front
+            
+            let sphere = SCNSphere()
+            sphere.radius = 100
             sphere.segmentCount = 300
             sphere.firstMaterial = material
             
@@ -111,7 +145,7 @@ extension ARView {
                     self.motionManager.stopGyroUpdates()
                     return
                 }
-                self.cameraNode.orientation = motionData.orientation()
+                self.cameraNode.orientation = motionData.gaze()
             })
         }
     }
