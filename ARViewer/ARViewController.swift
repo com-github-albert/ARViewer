@@ -60,7 +60,13 @@ fileprivate extension UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         let views = ["view": view]
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|[view]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[view]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|[view]|",
+                                                      options: NSLayoutFormatOptions(rawValue: 0),
+                                                      metrics: nil,
+                                                      views: views))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[view]|",
+                                                      options: NSLayoutFormatOptions(rawValue: 0),
+                                                      metrics: nil,
+                                                      views: views))
     }
 }

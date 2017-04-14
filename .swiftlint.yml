@@ -1,5 +1,4 @@
 disabled_rules:
-  - line_length
   - leading_whitespace
   - trailing_whitespace
   - valid_docs
@@ -9,6 +8,10 @@ disabled_rules:
 opt_in_rules:
   cyclomatic_complexity: 12
   file_length: 550
+  line_length: 
+    warning: 150
+    ignores_function_declarations: true
+    ignores_comments: true
   function_body_length: 80
   function_parameter_count: 8
   type_body_length: 300

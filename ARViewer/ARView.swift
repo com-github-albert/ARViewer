@@ -139,7 +139,8 @@ extension ARView {
         case .motion:
             guard motionManager.isAccelerometerAvailable else { return }
             motionManager.deviceMotionUpdateInterval = 0.01
-            motionManager.startDeviceMotionUpdates(to: OperationQueue.main, withHandler: {[unowned self] (motionData, error) in
+            motionManager.startDeviceMotionUpdates(to: OperationQueue.main,
+                                                   withHandler: {[unowned self] (motionData, error) in
                 guard let motionData = motionData else {
                     print("\(String(describing: error?.localizedDescription))")
                     self.motionManager.stopGyroUpdates()
