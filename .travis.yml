@@ -1,0 +1,7 @@
+language: objective-C
+osx_image: xcode8.3
+env:
+  global:
+  - xcode_project=ARViewer.xcodeproj
+  - xcode_scheme=ARViewer
+  - ios_sdk=iphonesimulator10.0
