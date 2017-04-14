@@ -13,12 +13,19 @@ public class ARViewController: UIViewController {
     
     @IBOutlet weak var arView: ARView!
     
+    let preview = CameraPreview()
+    let camera = CameraCapture()
+    
     override public func viewDidLoad() {
         super.viewDidLoad()
         
+//        setupARGame()
+        setupCamera()
+    }
+    
+    func setupARGame() {
         let urlStr = Bundle.main.path(forResource: "576003d01848e", ofType: "mp4")!
         let url = URL(fileURLWithPath: urlStr)
-//        let url = URL(string: "https://player.vimeo.com/external/187856429.m3u8?s=70eca31df2bc0f134331bb230e80dea855c0a8b0")!
         let player = AVPlayer(url: url)
         player.play()
         arView.panoramaVideoPlayer = player
@@ -27,6 +34,14 @@ public class ARViewController: UIViewController {
         arView.showsStatistics = true
     }
     
+    func setupCamera() {
+        view.add(view: preview)
+        preview.session = camera.session
+        camera.start()
+    }
+}
+
+extension ARViewController {
     override public var shouldAutorotate: Bool {
         return true
     }
@@ -37,5 +52,15 @@ public class ARViewController: UIViewController {
     
     override public var prefersStatusBarHidden: Bool {
         return true
+    }
+}
+
+fileprivate extension UIView {
+    func add(view: UIView) {
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        let views = ["view": view]
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|[view]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[view]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
     }
 }

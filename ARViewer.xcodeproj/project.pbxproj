@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6B0506241E9F3FCB006548D7 /* 576003d01848e.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6B0506231E9F3FCB006548D7 /* 576003d01848e.mp4 */; };
 		6B0506261E9F478D006548D7 /* ExSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0506251E9F478D006548D7 /* ExSize.swift */; };
+		6B3AD37B1EA0A19B00E61150 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3AD3791EA0A19B00E61150 /* CameraPreview.swift */; };
+		6B3AD37C1EA0A19B00E61150 /* CameraCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3AD37A1EA0A19B00E61150 /* CameraCapture.swift */; };
 		6B6392FA1E9CBDBA00E2A19F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6392F91E9CBDBA00E2A19F /* AppDelegate.swift */; };
 		6B6392FC1E9CBDBA00E2A19F /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6392FB1E9CBDBA00E2A19F /* ARViewController.swift */; };
 		6B6392FF1E9CBDBA00E2A19F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B6392FD1E9CBDBA00E2A19F /* Main.storyboard */; };
@@ -33,6 +35,8 @@
 /* Begin PBXFileReference section */
 		6B0506231E9F3FCB006548D7 /* 576003d01848e.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 576003d01848e.mp4; sourceTree = "<group>"; };
 		6B0506251E9F478D006548D7 /* ExSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExSize.swift; sourceTree = "<group>"; };
+		6B3AD3791EA0A19B00E61150 /* CameraPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+		6B3AD37A1EA0A19B00E61150 /* CameraCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraCapture.swift; sourceTree = "<group>"; };
 		6B6392F61E9CBDBA00E2A19F /* ARViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B6392F91E9CBDBA00E2A19F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B6392FB1E9CBDBA00E2A19F /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 				6B6392F91E9CBDBA00E2A19F /* AppDelegate.swift */,
 				6B6392FB1E9CBDBA00E2A19F /* ARViewController.swift */,
 				6B63931B1E9CBE3F00E2A19F /* ARView.swift */,
+				6B3AD3791EA0A19B00E61150 /* CameraPreview.swift */,
+				6B3AD37A1EA0A19B00E61150 /* CameraCapture.swift */,
 				6B6393191E9CBE0200E2A19F /* ExDeviceMotion.swift */,
 				6B63932B1E9CF58B00E2A19F /* ExFloatingPoint.swift */,
 				6B0506251E9F478D006548D7 /* ExSize.swift */,
@@ -220,6 +226,8 @@
 				6B6392FC1E9CBDBA00E2A19F /* ARViewController.swift in Sources */,
 				6B0506261E9F478D006548D7 /* ExSize.swift in Sources */,
 				6B63932C1E9CF58B00E2A19F /* ExFloatingPoint.swift in Sources */,
+				6B3AD37C1EA0A19B00E61150 /* CameraCapture.swift in Sources */,
+				6B3AD37B1EA0A19B00E61150 /* CameraPreview.swift in Sources */,
 				6B63931C1E9CBE3F00E2A19F /* ARView.swift in Sources */,
 				6B6392FA1E9CBDBA00E2A19F /* AppDelegate.swift in Sources */,
 				6B63931A1E9CBE0200E2A19F /* ExDeviceMotion.swift in Sources */,
