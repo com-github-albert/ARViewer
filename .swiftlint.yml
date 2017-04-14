@@ -1,0 +1,20 @@
+disabled_rules:
+  - line_length
+  - leading_whitespace
+  - trailing_whitespace
+  - valid_docs
+  - colon
+  - comma
+  - control_statement
+opt_in_rules:
+  cyclomatic_complexity: 12
+  file_length: 550
+  function_body_length: 80
+  function_parameter_count: 8
+  type_body_length: 300
+  variable_name:
+    min_length:
+      error: 1
+      warning: 1
+    excluded:
+      - N
