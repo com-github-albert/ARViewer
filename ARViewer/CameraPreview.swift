@@ -12,7 +12,7 @@ import AVFoundation
 public class CameraPreview: UIView {
     
     public var videoPreviewLayer: AVCaptureVideoPreviewLayer {
-        return layer as! AVCaptureVideoPreviewLayer
+        return (layer as? AVCaptureVideoPreviewLayer)!
     }
     
     public var session: AVCaptureSession? {
