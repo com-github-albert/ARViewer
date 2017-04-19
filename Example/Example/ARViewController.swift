@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import ARViewer
 
 public class ARViewController: UIViewController {
     
@@ -25,13 +26,13 @@ public class ARViewController: UIViewController {
     
     func setupARGame() {
         // Play video
-//        let urlStr = Bundle.main.path(forResource: "576003d01848e", ofType: "mp4")!
+//        let urlStr = Bundle.main.path(forResource: "PanoramaVideo", ofType: "mp4")!
 //        let url = URL(fileURLWithPath: urlStr)
 //        let player = AVPlayer(url: url)
 //        player.play()
 //        arView.panoramaVideoPlayer = player
         // Show texture
-        arView.panoramaTexture = UIImage(named: "1470302_1272179504")
+        arView.panoramaTexture = UIImage(named: "PanoramaImage.jpg")
         arView.controlMode = .motion
         arView.showsStatistics = true
     }

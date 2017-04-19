@@ -1,0 +1,10 @@
+framework module ARViewer {
+  umbrella header "ARViewer.h"
+
+  export *
+  module * { export * }
+}
+
+module ARViewer.Swift {
+    header "ARViewer-Swift.h"
+}
