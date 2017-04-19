@@ -14,8 +14,8 @@
 		6B1A7CFE1EA75EDB002AF245 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A7CFA1EA75EDB002AF245 /* ARViewController.swift */; };
 		6B1A7CFF1EA75EDB002AF245 /* PanoramaImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B1A7CFC1EA75EDB002AF245 /* PanoramaImage.jpg */; };
 		6B1A7D001EA75EDB002AF245 /* PanoramaVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6B1A7CFD1EA75EDB002AF245 /* PanoramaVideo.mp4 */; };
-		6B1A7D191EA762BD002AF245 /* ARViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B1A7D181EA762BD002AF245 /* ARViewer.framework */; };
-		6B1A7D1B1EA762C2002AF245 /* ARViewer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B1A7D181EA762BD002AF245 /* ARViewer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6B1A7D301EA76498002AF245 /* ARViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B1A7D2F1EA76498002AF245 /* ARViewer.framework */; };
+		6B1A7D311EA76498002AF245 /* ARViewer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B1A7D2F1EA76498002AF245 /* ARViewer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,7 +25,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6B1A7D1B1EA762C2002AF245 /* ARViewer.framework in Embed Frameworks */,
+				6B1A7D311EA76498002AF245 /* ARViewer.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -42,7 +42,7 @@
 		6B1A7CFA1EA75EDB002AF245 /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		6B1A7CFC1EA75EDB002AF245 /* PanoramaImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PanoramaImage.jpg; sourceTree = "<group>"; };
 		6B1A7CFD1EA75EDB002AF245 /* PanoramaVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = PanoramaVideo.mp4; sourceTree = "<group>"; };
-		6B1A7D181EA762BD002AF245 /* ARViewer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ARViewer.framework; sourceTree = "<group>"; };
+		6B1A7D2F1EA76498002AF245 /* ARViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B1A7D191EA762BD002AF245 /* ARViewer.framework in Frameworks */,
+				6B1A7D301EA76498002AF245 /* ARViewer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,9 +60,9 @@
 		6B1A7CDC1EA75E75002AF245 = {
 			isa = PBXGroup;
 			children = (
+				6B1A7D2F1EA76498002AF245 /* ARViewer.framework */,
 				6B1A7CE71EA75E76002AF245 /* Example */,
 				6B1A7CE61EA75E76002AF245 /* Products */,
-				6B1A7D181EA762BD002AF245 /* ARViewer.framework */,
 			);
 			sourceTree = "<group>";
 		};
