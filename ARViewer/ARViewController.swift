@@ -19,17 +19,19 @@ public class ARViewController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-//        setupARGame()
-        setupCamera()
+//        setupCamera()
+        setupARGame()
     }
     
     func setupARGame() {
-        let urlStr = Bundle.main.path(forResource: "576003d01848e", ofType: "mp4")!
-        let url = URL(fileURLWithPath: urlStr)
-        let player = AVPlayer(url: url)
-        player.play()
-        arView.panoramaVideoPlayer = player
-//        arView.panoramaTexture = UIImage(named: "1470302_1272179504")
+        // Play video
+//        let urlStr = Bundle.main.path(forResource: "576003d01848e", ofType: "mp4")!
+//        let url = URL(fileURLWithPath: urlStr)
+//        let player = AVPlayer(url: url)
+//        player.play()
+//        arView.panoramaVideoPlayer = player
+        // Show texture
+        arView.panoramaTexture = UIImage(named: "1470302_1272179504")
         arView.controlMode = .motion
         arView.showsStatistics = true
     }
