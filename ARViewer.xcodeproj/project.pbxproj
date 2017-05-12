@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		6B61C09B1EC5838000B1E57B /* ARViewerSDK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 6B61C09E1EC5838000B1E57B /* Build configuration list for PBXAggregateTarget "ARViewerSDK" */;
+			buildPhases = (
+				6B61C09F1EC5838A00B1E57B /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = ARViewerSDK;
+			productName = ARViewerSDK;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		6B1A7CB51EA75D14002AF245 /* ARViewer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B1A7CB31EA75D14002AF245 /* ARViewer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6B1A7CD51EA75E07002AF245 /* CameraCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A7CCD1EA75E07002AF245 /* CameraCapture.swift */; };
@@ -146,6 +160,11 @@
 						DevelopmentTeam = C94329WK33;
 						ProvisioningStyle = Automatic;
 					};
+					6B61C09B1EC5838000B1E57B = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = C94329WK33;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 6B1A7CAA1EA75D14002AF245 /* Build configuration list for PBXProject "ARViewer" */;
@@ -161,6 +180,7 @@
 			projectRoot = "";
 			targets = (
 				6B1A7CAF1EA75D14002AF245 /* ARViewer */,
+				6B61C09B1EC5838000B1E57B /* ARViewerSDK */,
 			);
 		};
 /* End PBXProject section */
@@ -174,6 +194,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6B61C09F1EC5838A00B1E57B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\n# Sets the target folders and the final framework product.\nLIB_TARGET_NAME=\"${PROJECT_NAME}\"\n\nUNIVERSAL_OUTPUTFOLDER=\"build/${CONFIGURATION}-universal/${LIB_TARGET_NAME}.framework\"\n\n# Working dir will be deleted after the framework creation.\nDEVICE_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${LIB_TARGET_NAME}.framework\"\nSIMULATOR_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${LIB_TARGET_NAME}.framework\"\n\n# Clean and Building both architectures.\nxcodebuild -configuration ${CONFIGURATION} -target ${LIB_TARGET_NAME} -sdk iphoneos clean build\nxcodebuild -configuration ${CONFIGURATION} -target ${LIB_TARGET_NAME} -sdk iphonesimulator clean build\n\n# Cleaning the oldest.\nif [ -d ${UNIVERSAL_OUTPUTFOLDER} ]\nthen\nrm -rf ${UNIVERSAL_OUTPUTFOLDER}\nfi\nmkdir -p ${UNIVERSAL_OUTPUTFOLDER}\ncp -R \"${DEVICE_DIR}/\" ${UNIVERSAL_OUTPUTFOLDER}\n\n# Create universal binary file using lipo\nlipo -create \"${DEVICE_DIR}/${LIB_TARGET_NAME}\" \"${SIMULATOR_DIR}/${LIB_TARGET_NAME}\" -output \"${UNIVERSAL_OUTPUTFOLDER}/${LIB_TARGET_NAME}\"\n\nopen \"${UNIVERSAL_OUTPUTFOLDER}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6B1A7CAB1EA75D14002AF245 /* Sources */ = {
@@ -331,6 +367,22 @@
 			};
 			name = Release;
 		};
+		6B61C09C1EC5838000B1E57B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = C94329WK33;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6B61C09D1EC5838000B1E57B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = C94329WK33;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -351,6 +403,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		6B61C09E1EC5838000B1E57B /* Build configuration list for PBXAggregateTarget "ARViewerSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B61C09C1EC5838000B1E57B /* Debug */,
+				6B61C09D1EC5838000B1E57B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
